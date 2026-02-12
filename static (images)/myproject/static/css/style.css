@@ -1,0 +1,12 @@
+img{
+    height: 350px;
+    width: 350px;
+    margin-top: 40px;
+    margin-left: 100px;
+    box-shadow: 5px 5px 15px 1px black;
+    border-radius: 30px;
+}
+h1{
+    color: aqua;
+    text-decoration: underline;
+}
