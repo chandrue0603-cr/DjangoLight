@@ -1,0 +1,47 @@
+{% extends 'main.html' %}
+{% block title %}
+ALERT
+{% endblock %}
+{% block content %}
+<center>
+<div class="container-fluid">
+    <div class="col-md-offset-4 col-md-4">
+        <h1 class="page-header text-primary text-center ">ALERT Message</h1>
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'error' %}
+                <div class="alert alert-danger">
+                    {{message}}
+                </div>
+
+                {% else %}
+                    <div class="alert alert-{{message.tags}}">
+                    {{message}}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <a class="btn btn-success" href="{% url 'Success' %}">Success</a>
+        <a class="btn btn-info" href="{% url 'Info' %}">Info</a>
+        <a class="btn btn-danger" href="{% url 'Danger' %}">Danger</a>
+        <a class="btn btn-warning" href="{% url 'Warning' %}">Warning</a>
+    </div>
+</div>
+</center>
+{% endblock %}
+
+{% block js %}
+<script>
+    $(document).ready(function(){
+        setTimeout(function(){
+            $(".alert").animate({
+                "margin-left": "-100%", // Left side veliya poga
+                "opacity": "0"          // Konjam konjama maraiya
+            }, 1000, function(){
+                $(this).remove();       // Animation mudinjathum element-ah remove panidum
+            });
+        }, 4000);
+    });
+</script>
+{% endblock %}
+
